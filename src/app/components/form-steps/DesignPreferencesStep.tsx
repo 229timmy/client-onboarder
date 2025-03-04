@@ -146,7 +146,7 @@ export default function DesignPreferencesStep({ formData, updateFormData }: Desi
                   if (ready) return 'Upload Media Files';
                   return 'Loading...';
                 },
-                allowedContent({ ready, fileTypes }) {
+                allowedContent({ ready }) {
                   if (!ready) return 'Loading...';
                   return `Supports: Images up to 4MB`;
                 }
@@ -208,7 +208,7 @@ export default function DesignPreferencesStep({ formData, updateFormData }: Desi
                   if (ready) return 'Upload Reference Files';
                   return 'Loading...';
                 },
-                allowedContent({ ready, fileTypes }) {
+                allowedContent({ ready }) {
                   if (!ready) return 'Loading...';
                   return `Supports: Images and PDFs up to 8MB`;
                 }
