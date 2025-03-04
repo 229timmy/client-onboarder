@@ -35,7 +35,7 @@
 
 ## 🚀 Live Demo
 
-Check out the live demo at [your-demo-url.vercel.app](https://your-demo-url.vercel.app)
+Check out the live demo at [229onboard.vercel.app](https://229onboard.vercel.app)
 
 ## 🛠️ Tech Stack
 
