@@ -29,6 +29,7 @@ const initialFormData: ClientFormData = {
   expectedPages: 1,
   specialFunctionality: '',
   socialMediaLinks: [],
+  budget: '',
   desiredTimeline: '',
   priorityLevel: 'Medium',
   additionalNotes: ''

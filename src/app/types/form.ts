@@ -30,7 +30,8 @@ export interface ClientFormData {
     url: string;
   }[];
   
-  // Timeline
+  // Timeline & Budget
+  budget: string;
   desiredTimeline: string;
   priorityLevel: 'Low' | 'Medium' | 'High';
   additionalNotes: string;
