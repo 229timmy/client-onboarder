@@ -21,11 +21,11 @@ export const ourFileRouter = {
   docUploader: f({
     image: {
       maxFileSize: "4MB",
-      maxFileCount: 5
+      maxFileCount: 10
     },
     pdf: {
       maxFileSize: "8MB",
-      maxFileCount: 5
+      maxFileCount: 10
     }
   })
     .middleware(() => {

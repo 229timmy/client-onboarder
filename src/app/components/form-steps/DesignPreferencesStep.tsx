@@ -118,27 +118,43 @@ export default function DesignPreferencesStep({ formData, updateFormData }: Desi
           <p className="text-sm text-gray-900 mb-2">
             Upload any images, videos, or other media you&apos;d like to use on your website
           </p>
-          <UploadButton<OurFileRouter, "imageUploader">
-            endpoint="imageUploader"
-            onClientUploadComplete={(res) => {
-              if (res) {
-                const newFiles = res.map(f => ({
-                  name: f.name,
-                  url: f.url
-                }));
-                const updatedFiles = [...mediaFiles, ...newFiles];
-                setMediaFiles(updatedFiles);
-                updateFormData({
-                  mediaFiles: updatedFiles
-                });
-              }
-            }}
-            onUploadError={(error: Error) => {
-              alert(`ERROR! ${error.message}`);
-            }}
-          />
+          <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 hover:border-blue-500 transition-colors">
+            <UploadButton<OurFileRouter, "imageUploader">
+              endpoint="imageUploader"
+              onClientUploadComplete={(res) => {
+                if (res) {
+                  const newFiles = res.map(f => ({
+                    name: f.name,
+                    url: f.url
+                  }));
+                  const updatedFiles = [...mediaFiles, ...newFiles];
+                  setMediaFiles(updatedFiles);
+                  updateFormData({
+                    mediaFiles: updatedFiles
+                  });
+                }
+              }}
+              onUploadError={(error: Error) => {
+                alert(`ERROR! ${error.message}`);
+              }}
+              appearance={{
+                button: "bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors",
+                allowedContent: "text-gray-600 text-sm mt-2"
+              }}
+              content={{
+                button({ ready }) {
+                  if (ready) return 'Upload Media Files';
+                  return 'Loading...';
+                },
+                allowedContent({ ready, fileTypes }) {
+                  if (!ready) return 'Loading...';
+                  return `Supports: Images up to 4MB`;
+                }
+              }}
+            />
+          </div>
           {mediaFiles.length > 0 && (
-            <ul className="mt-2 space-y-2">
+            <ul className="mt-4 space-y-2">
               {mediaFiles.map((file, index) => (
                 <li key={index} className="flex items-center gap-2 bg-gray-50 p-2 rounded">
                   <a href={file.url} target="_blank" rel="noopener noreferrer" className="flex-1 text-blue-600 hover:text-blue-800">
@@ -164,25 +180,41 @@ export default function DesignPreferencesStep({ formData, updateFormData }: Desi
           <p className="text-sm text-gray-900 mb-2">
             Upload any additional reference materials (documents, PDFs, etc.)
           </p>
-          <UploadButton<OurFileRouter, "docUploader">
-            endpoint="docUploader"
-            onClientUploadComplete={(res) => {
-              if (res) {
-                const newFiles = res.map(f => ({
-                  name: f.name,
-                  url: f.url
-                }));
-                const updatedFiles = [...referenceFiles, ...newFiles];
-                setReferenceFiles(updatedFiles);
-                updateFormData({
-                  referenceFiles: updatedFiles
-                });
-              }
-            }}
-            onUploadError={(error: Error) => {
-              alert(`ERROR! ${error.message}`);
-            }}
-          />
+          <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 hover:border-blue-500 transition-colors">
+            <UploadButton<OurFileRouter, "docUploader">
+              endpoint="docUploader"
+              onClientUploadComplete={(res) => {
+                if (res) {
+                  const newFiles = res.map(f => ({
+                    name: f.name,
+                    url: f.url
+                  }));
+                  const updatedFiles = [...referenceFiles, ...newFiles];
+                  setReferenceFiles(updatedFiles);
+                  updateFormData({
+                    referenceFiles: updatedFiles
+                  });
+                }
+              }}
+              onUploadError={(error: Error) => {
+                alert(`ERROR! ${error.message}`);
+              }}
+              appearance={{
+                button: "bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors",
+                allowedContent: "text-gray-600 text-sm mt-2"
+              }}
+              content={{
+                button({ ready }) {
+                  if (ready) return 'Upload Reference Files';
+                  return 'Loading...';
+                },
+                allowedContent({ ready, fileTypes }) {
+                  if (!ready) return 'Loading...';
+                  return `Supports: Images and PDFs up to 8MB`;
+                }
+              }}
+            />
+          </div>
           {referenceFiles.length > 0 && (
             <ul className="mt-2 space-y-2">
               {referenceFiles.map((file, index) => (
