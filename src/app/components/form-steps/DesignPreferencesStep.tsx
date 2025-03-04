@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { ClientFormData } from '../../types/form';
 import { UploadButton } from "@uploadthing/react";
 import type { OurFileRouter } from "@/app/api/uploadthing/core";
@@ -116,7 +116,7 @@ export default function DesignPreferencesStep({ formData, updateFormData }: Desi
             Media Files for Website
           </label>
           <p className="text-sm text-gray-900 mb-2">
-            Upload any images, videos, or other media you'd like to use on your website
+            Upload any images, videos, or other media you&apos;d like to use on your website
           </p>
           <UploadButton<OurFileRouter, "imageUploader">
             endpoint="imageUploader"

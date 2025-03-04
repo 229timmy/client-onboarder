@@ -147,7 +147,7 @@ export default function ClientForm() {
             </div>
             <div className="ml-3">
               <p className="text-sm font-medium text-green-800">
-                Thank you! Your form has been submitted successfully. We'll be in touch soon.
+                Thank you! Your form has been submitted successfully. We&apos;ll be in touch soon.
               </p>
             </div>
           </div>
